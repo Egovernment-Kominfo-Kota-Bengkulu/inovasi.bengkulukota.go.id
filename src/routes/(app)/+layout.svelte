@@ -1,5 +1,5 @@
 <script lang="ts">
-  import DynamicScript from "$lib/components/DynamicScript.svelte";
+  import DynamicScript from "$lib/components/DynamicScripts.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import Header from "$lib/components/Header.svelte";
   import RightBar from "$lib/components/RightBar.svelte";
@@ -12,9 +12,10 @@
 </script>
 
 <svelte:head>
-    <title>Starter Page | Minia - Minimal Admin & Dashboard Template</title>
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    
+    <title>Inovasi Pemerintah Kota Bengkulu | Solusi Digital dan Pelayanan Publik Modern</title>
+    <meta content="Portal resmi inovasi Kota Bengkulu yang menyajikan solusi digital, pelayanan publik, dan program unggulan pemerintah untuk masyarakat." name="description" />
+    <meta name="keywords" content="inovasi pemerintah kota bengkulu, program unggulan bengkulu, pelayanan publik digital, smart city bengkulu, aplikasi pemkot bengkulu, inovasi daerah, teknologi untuk masyarakat, pemkot bengkulu, bappeda kota bengkulu, solusi digital pemerintahan">
+
     <!-- preloader css -->
     <link rel="stylesheet" href="assets/css/preloader.min.css" type="text/css" />
     <!-- Bootstrap Css -->

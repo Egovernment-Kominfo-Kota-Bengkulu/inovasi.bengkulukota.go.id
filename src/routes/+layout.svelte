@@ -1,15 +1,38 @@
 <script lang="ts">
-  import DynamicScript from "$lib/components/DynamicScript.svelte";
+  import TopBar from "$lib/components/TopBar.svelte";
+  import TopMenu from "$lib/components/TopMenu.svelte";
   import Footer from "$lib/components/Footer.svelte";
-  import Header from "$lib/components/Header.svelte";
   import RightBar from "$lib/components/RightBar.svelte";
-  import VerticalMenu from "$lib/components/VerticalMenu.svelte";
+  import DynamicScripts from "$lib/components/DynamicScripts.svelte";
   let { children } = $props();
+
+  import { onMount } from 'svelte';
+  import { page } from '$app/stores';
+  import { APP_NAME } from "$lib/config";
+
+  onMount(() => {
+    // Cek apakah rute saat ini adalah homepage (misalnya '/')
+    const isHomePage = $page.url.pathname === '/';
+
+    // Modifikasi atribut body
+    if (isHomePage) {
+      document.body.setAttribute('data-layout', 'horizontal');
+    } else {
+      document.body.removeAttribute('data-layout');
+    }
+
+    // Cleanup saat komponen di-unmount
+    return () => {
+      document.body.removeAttribute('data-layout');
+    };
+  });
+  
 </script>
 
 <svelte:head>
-    <title>Starter Page | Minia - Minimal Admin & Dashboard Template</title>
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <title>{APP_NAME} | Solusi Digital dan Pelayanan Publik Modern</title>
+    <meta content="Portal resmi inovasi Kota Bengkulu yang menyajikan solusi digital, pelayanan publik, dan program unggulan pemerintah untuk masyarakat." name="description" />
+    <meta name="keywords" content="inovasi pemerintah kota bengkulu, program unggulan bengkulu, pelayanan publik digital, smart city bengkulu, aplikasi pemkot bengkulu, inovasi daerah, teknologi untuk masyarakat, pemkot bengkulu, bappeda kota bengkulu, solusi digital pemerintahan">
     
     <!-- preloader css -->
     <link rel="stylesheet" href="assets/css/preloader.min.css" type="text/css" />
@@ -22,9 +45,9 @@
 </svelte:head>
 
 <div id="layout-wrapper">
+    <TopBar />
+    <TopMenu />
 
-    <Header />
-    <VerticalMenu />
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
@@ -45,15 +68,15 @@
 
     </div>
     <!-- end main content-->
-    <Footer />
 
+    <Footer />
 </div>
 <!-- END layout-wrapper -->
-
+ 
 <RightBar />
 
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
 
-<DynamicScript />
+<DynamicScripts />
 
