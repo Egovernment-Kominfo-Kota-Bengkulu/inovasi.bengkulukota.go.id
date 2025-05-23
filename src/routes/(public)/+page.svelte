@@ -1,5 +1,5 @@
 <script lang="ts">
-
+    const currentYear = new Date().getFullYear();
 </script>
 
 <div class="row">
@@ -123,10 +123,10 @@
         <div class="card card-h-100">
             <!-- card body -->
             <div class="card-body">
-                <div class="d-flex flex-wrap align-items-center mb-4">
-                    <h5 class="card-title me-2">Pemanang Lomba Inovasi</h5>
+                <div class="d-flex flex-wrap align-items-center mb-1">
+                    <h5 class="card-title me-2">Pemanang Lomba Inovasi {currentYear}</h5>
                     <div class="ms-auto">
-                        <div>
+                        <div class="my-3">
                             <button type="button" class="btn btn-soft-primary btn-sm mb-1">
                                 Perangkat Daerah
                             </button>
@@ -154,26 +154,26 @@
                                 <h6>0.4412 BTC = <span class="text-muted font-size-14 fw-normal">$ 4025.32</span></h6>
                             </div>
 
-                            <div class="mt-4 pt-2">
+                            <div class="mt-1 pt-1">
                                 <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-primary"></i>Juara II</p>
                                 <h6>4.5701 ETH = <span class="text-muted font-size-14 fw-normal">$ 1123.64</span></h6>
                             </div>
 
-                            <div class="mt-4 pt-2">
+                            <div class="mt-1 pt-1">
                                 <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-info"></i>Juara III</p>
                                 <h6>35.3811 LTC = <span class="text-muted font-size-14 fw-normal">$ 2263.09</span></h6>
                             </div>
-                            <div class="mt-4 pt-2">
+                            <div class="mt-1 pt-1">
                                 <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-success"></i> Harapan I</p>
                                 <h6>0.4412 BTC = <span class="text-muted font-size-14 fw-normal">$ 4025.32</span></h6>
                             </div>
 
-                            <div class="mt-4 pt-2">
+                            <div class="mt-1 pt-1">
                                 <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-primary"></i> Harapan II</p>
                                 <h6>4.5701 ETH = <span class="text-muted font-size-14 fw-normal">$ 1123.64</span></h6>
                             </div>
 
-                            <div class="mt-4 pt-2">
+                            <div class="mt-1 pt-1">
                                 <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-info"></i> Harapan III</p>
                                 <h6>35.3811 LTC = <span class="text-muted font-size-14 fw-normal">$ 2263.09</span></h6>
                             </div>
@@ -195,7 +195,7 @@
                         <div class="carousel-item active">
                             <div class="text-center p-3">
                                 <div class="ratio ratio-16x9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nQc4PCFkj1Y?si=OO71S0WzTebGoqSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_ckl62AxFcw?si=LC56HifAHMmffOkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 </div>
                                 <h4 class="mt-3 lh-base fw-normal text-white"><b>Bitcoin</b> News</h4>
                                 <p class="text-white-50 font-size-13">Bitcoin prices fell sharply amid the global sell-off in equities. Negative news
@@ -208,7 +208,7 @@
                         <div class="carousel-item">
                             <div class="text-center p-3">
                                 <div class="ratio ratio-16x9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nQc4PCFkj1Y?si=OO71S0WzTebGoqSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_ckl62AxFcw?si=LC56HifAHMmffOkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 </div>
                                 <h4 class="mt-3 lh-base fw-normal text-white"><b>ETH</b> News</h4>
                                 <p class="text-white-50 font-size-13">Bitcoin prices fell sharply amid the global sell-off in equities. Negative news
@@ -221,7 +221,7 @@
                         <div class="carousel-item">
                             <div class="text-center p-3">
                                 <div class="ratio ratio-16x9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nQc4PCFkj1Y?si=OO71S0WzTebGoqSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_ckl62AxFcw?si=LC56HifAHMmffOkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 </div>
                                 <h4 class="mt-3 lh-base fw-normal text-white"><b>Litecoin</b> News</h4>
                                 <p class="text-white-50 font-size-13">Bitcoin prices fell sharply amid the global sell-off in equities. Negative news
