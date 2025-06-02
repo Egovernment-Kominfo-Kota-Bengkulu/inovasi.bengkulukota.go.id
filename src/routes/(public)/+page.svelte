@@ -125,7 +125,7 @@
             <div class="card-body">
                 <div class="d-flex flex-wrap align-items-center mb-1">
                     <h5 class="card-title me-2">Pemanang Lomba Inovasi {currentYear}</h5>
-                    <div class="ms-auto">
+                    <div class="hstack gap-3">
                         <div class="my-3">
                             <button type="button" class="btn btn-soft-primary btn-sm mb-1">
                                 Perangkat Daerah
@@ -150,32 +150,38 @@
                     <div class="col-sm align-self-center">
                         <div class="mt-4 mt-sm-0">
                             <div>
-                                <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-success"></i> Juara I</p>
-                                <h6>0.4412 BTC = <span class="text-muted font-size-14 fw-normal">$ 4025.32</span></h6>
+                                <div class="mb-2 text-uppercase text-success fw-bold"><i class="mdi mdi-circle align-middle font-size-10 me-2"></i>Juara I
+                                <span class="text-black">Dinas Komunikasi dan Informatika</span><p class="text-muted font-size-14 fw-normal">"SEPIA" (Sistem Elektronik Pegawai Tidak Tetap)</p>
+                                </div>
                             </div>
 
                             <div class="mt-1 pt-1">
-                                <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-primary"></i>Juara II</p>
-                                <h6>4.5701 ETH = <span class="text-muted font-size-14 fw-normal">$ 1123.64</span></h6>
+                                <div class="mb-2 text-uppercase text-success fw-bold"><i class="mdi mdi-circle align-middle font-size-10 me-2"></i>Juara II
+                                <span class="text-black">Dinas Pelayanan Terpadu Satu Pintu</span><p class="text-muted font-size-14 fw-normal">"SIAP Cepat" (Sistem Informasi Administrasi Perizinan Cepat)</p>
+                                </div>
                             </div>
 
                             <div class="mt-1 pt-1">
-                                <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-info"></i>Juara III</p>
-                                <h6>35.3811 LTC = <span class="text-muted font-size-14 fw-normal">$ 2263.09</span></h6>
+                                <div class="mb-2 text-uppercase text-success fw-bold"><i class="mdi mdi-circle align-middle font-size-10 me-2"></i>Juara III
+                                <span class="text-black">Dinas Pemberdayaan Perempuan dan Perlindungan Anak</span><p class="text-muted font-size-14 fw-normal">"SPPA" (Sahabat Perempuan dan Anak)</p>
+                                </div>
                             </div>
                             <div class="mt-1 pt-1">
-                                <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-success"></i> Harapan I</p>
-                                <h6>0.4412 BTC = <span class="text-muted font-size-14 fw-normal">$ 4025.32</span></h6>
-                            </div>
-
-                            <div class="mt-1 pt-1">
-                                <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-primary"></i> Harapan II</p>
-                                <h6>4.5701 ETH = <span class="text-muted font-size-14 fw-normal">$ 1123.64</span></h6>
+                                <div class="mb-2 text-uppercase text-success fw-bold"><i class="mdi mdi-circle align-middle font-size-10 me-2"></i>Harapan I
+                                <span class="text-black">Dinas Ketahanan Pangan dan Pertanian</span><p class="text-muted font-size-14 fw-normal">"AgriConnect" (Konektivitas Pertanian Digital)</p>
+                                </div>
                             </div>
 
                             <div class="mt-1 pt-1">
-                                <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-info"></i> Harapan III</p>
-                                <h6>35.3811 LTC = <span class="text-muted font-size-14 fw-normal">$ 2263.09</span></h6>
+                                <div class="mb-2 text-uppercase text-success fw-bold"><i class="mdi mdi-circle align-middle font-size-10 me-2"></i>Harapan II
+                                <span class="text-black">Dinas Kebudayaan dan Pariwisata</span><p class="text-muted font-size-14 fw-normal">"Pesona Lokal" (Platform Promosi Pariwisata Berbasis Komunitas)</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-1 pt-1">
+                                <div class="mb-2 text-uppercase text-success fw-bold"><i class="mdi mdi-circle align-middle font-size-10 me-2"></i>Harapan III
+                                <span class="text-black">Dinas Sosial</span><p class="text-muted font-size-14 fw-normal"> "Pilar Kesejahteraan" (Sistem Integrasi Data Penerima Bantuan Sosial)</p>
+                                </div>
                             </div>
                         </div>
                     </div>

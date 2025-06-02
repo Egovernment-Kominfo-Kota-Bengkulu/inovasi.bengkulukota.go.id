@@ -1,7 +1,10 @@
 <script lang="ts">
-
+  import { APP_NAME } from "$lib/config";
 </script>
 
+<svelte:head>
+    <title>Masuk {APP_NAME} | Solusi Digital dan Pelayanan Publik Modern</title>
+</svelte:head>
 
 <form class="mt-4 pt-2" action="index.html">
     <div class="mb-3">

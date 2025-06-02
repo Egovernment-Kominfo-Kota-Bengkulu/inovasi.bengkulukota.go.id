@@ -10,38 +10,38 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="index.html" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="index.html" id="topnav-dashboard" role="button">
                             <i data-feather="home"></i><span data-key="t-dashboards">Beranda</span>
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="index.html" id="topnav-dashboard" role="button">
-                            <i data-feather="home"></i><span data-key="t-dashboards">Tentang</span>
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="index.html" id="topnav-dashboard" role="button">
+                            <i data-feather="award"></i><span data-key="t-dashboards">Inovasi Kota Bengkulu</span>
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="index.html" id="topnav-dashboard" role="button">
-                            <i data-feather="home"></i><span data-key="t-dashboards">Jadwal</span>
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="index.html" id="topnav-dashboard" role="button">
+                            <i data-feather="book-open"></i><span data-key="t-dashboards">Tentang</span>
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="index.html" id="topnav-dashboard" role="button">
-                            <i data-feather="home"></i><span data-key="t-dashboards">Panduan</span>
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="index.html" id="topnav-dashboard" role="button">
+                            <i data-feather="calendar"></i><span data-key="t-dashboards">Jadwal Pelaksanaan</span>
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="index.html" id="topnav-dashboard" role="button">
-                            <i data-feather="home"></i><span data-key="t-dashboards">Inovasi</span>
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="index.html" id="topnav-dashboard" role="button">
+                            <i data-feather="book"></i><span data-key="t-dashboards">Panduan</span>
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="index.html" id="topnav-dashboard" role="button">
-                            <i data-feather="home"></i><span data-key="t-dashboards">Kontak</span>
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="index.html" id="topnav-dashboard" role="button">
+                            <i data-feather="phone"></i><span data-key="t-dashboards">Kontak Kami</span>
                         </a>
                     </li>
 

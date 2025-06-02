@@ -1,1 +1,1 @@
-ClassicEditor.create(document.querySelector("#ckeditor-classic")).then(function(e){e.ui.view.editable.element.style.height="200px"}).catch(function(e){console.error(e)});
+const editorIds=["latar-belakang","penjaringan-ide","pemilihan-ide","manfaat-inovasi","dampak-inovasi"];editorIds.forEach(id=>{const el=document.querySelector(`#${id}`);el&&ClassicEditor.create(el).then(e=>{e.ui.view.editable.element.style.height="200px"}).catch(e=>{console.error(`CKEditor gagal dimuat pada #${id}`,e)})});

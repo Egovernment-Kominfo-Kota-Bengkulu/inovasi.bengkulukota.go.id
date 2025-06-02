@@ -1,26 +1,49 @@
 <script lang="ts">
-  import TopBar from "$lib/components/TopBar.svelte";
-  import TopMenu from "$lib/components/TopMenu.svelte";
+  import Header from "$lib/components/Header.svelte";
+  import VerticalMenu from "$lib/components/VerticalMenu.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import RightBar from "$lib/components/RightBar.svelte";
-  import DynamicScripts from "$lib/components/DynamicScripts.svelte";
 
   import { onMount } from 'svelte';
-  import { APP_NAME } from "$lib/config";
 
   let { children } = $props();
 
+  const scripts = [
+    '/assets/libs/jquery/jquery.min.js',
+    '/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
+    '/assets/libs/metismenu/metisMenu.min.js',
+    '/assets/libs/simplebar/simplebar.min.js',
+    '/assets/libs/node-waves/waves.min.js',
+    '/assets/libs/feather-icons/feather.min.js',
+    '/assets/libs/pace-js/pace.min.js',
+    '/assets/js/app.js'
+  ];
+
   onMount(() => {
-    document.body.setAttribute('data-layout', 'horizontal');
+    const loadedScripts: HTMLScriptElement[] = [];
+
+    scripts.forEach(src => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = false; // Muat berurutan untuk dependensi
+      script.onload = () => console.log(`${src} loaded`);
+      document.body.appendChild(script);
+      loadedScripts.push(script);
+    });
+
+    // Cleanup saat layout di-unmount
     return () => {
-      document.body.removeAttribute('data-layout');
+      loadedScripts.forEach(script => {
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      });
     };
-  });
+  });   
   
 </script>
 
 <svelte:head>
-    <title>{APP_NAME} | Solusi Digital dan Pelayanan Publik Modern</title>
     <meta content="Portal resmi inovasi Kota Bengkulu yang menyajikan solusi digital, pelayanan publik, dan program unggulan pemerintah untuk masyarakat." name="description" />
     <meta name="keywords" content="inovasi pemerintah kota bengkulu, program unggulan bengkulu, pelayanan publik digital, smart city bengkulu, aplikasi pemkot bengkulu, inovasi daerah, teknologi untuk masyarakat, pemkot bengkulu, bappeda kota bengkulu, solusi digital pemerintahan">
     
@@ -35,8 +58,8 @@
 </svelte:head>
 
 <div id="layout-wrapper">
-    <TopBar />
-    <TopMenu />
+    <Header />
+    <VerticalMenu />
 
     <div class="main-content">
 
@@ -59,9 +82,12 @@
     <Footer />
 </div>
 <!-- END layout-wrapper -->
+ 
+<RightBar />
 
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
 
-<DynamicScripts />
+<!-- <DynamicScripts />
+<DynamicScripts script={scripts} /> -->
 
