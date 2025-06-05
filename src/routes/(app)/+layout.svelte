@@ -5,10 +5,12 @@
   import RightBar from "$lib/components/RightBar.svelte";
 
   import { onMount } from 'svelte';
+  import { loadScriptsInOrder } from "$lib/utils/scriptLoader";
 
   let { children } = $props();
-
-  const scripts = [
+  
+  onMount(async () => {
+  await loadScriptsInOrder([
     '/assets/libs/jquery/jquery.min.js',
     '/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
     '/assets/libs/metismenu/metisMenu.min.js',
@@ -17,29 +19,8 @@
     '/assets/libs/feather-icons/feather.min.js',
     '/assets/libs/pace-js/pace.min.js',
     '/assets/js/app.js'
-  ];
-
-  onMount(() => {
-    const loadedScripts: HTMLScriptElement[] = [];
-
-    scripts.forEach(src => {
-      const script = document.createElement('script');
-      script.src = src;
-      script.async = false; // Muat berurutan untuk dependensi
-      script.onload = () => console.log(`${src} loaded`);
-      document.body.appendChild(script);
-      loadedScripts.push(script);
-    });
-
-    // Cleanup saat layout di-unmount
-    return () => {
-      loadedScripts.forEach(script => {
-        if (document.body.contains(script)) {
-          document.body.removeChild(script);
-        }
-      });
-    };
-  });   
+  ]);
+});
   
 </script>
 
