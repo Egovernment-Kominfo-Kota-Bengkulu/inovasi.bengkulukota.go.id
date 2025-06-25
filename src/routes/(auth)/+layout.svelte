@@ -1,5 +1,4 @@
 <script lang="ts">
-  import DynamicScripts from "$lib/components/DynamicScripts.svelte";
   import { APP_NAME } from "$lib/config";
 
   let { children } = $props();
