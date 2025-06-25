@@ -1,4 +1,10 @@
-const API_URL = 'http://localhost:8000/api/innovations';
+const API_URL = 'https://inovasibackend.bengkulukota.go.id/api/innovations';
+
+export interface Oraganization {
+    id: number;
+    organization_categories_id: number;
+    nama_organisasi: string;
+}
 
 export interface Innovation {
     id: number;
@@ -13,6 +19,7 @@ export interface Innovation {
     dampak_inovasi: string;
     create_at: string;
     update_at: string;
+    organization: Oraganization;
 }
 
 export async function getInnovations(): Promise<Innovation[]> {

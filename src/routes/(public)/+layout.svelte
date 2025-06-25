@@ -3,12 +3,25 @@
   import TopMenu from "$lib/components/TopMenu.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import RightBar from "$lib/components/RightBar.svelte";
-  import DynamicScripts from "$lib/components/DynamicScripts.svelte";
+  import { loadScriptsInOrder } from "$lib/utils/scriptLoader";
 
   import { onMount } from 'svelte';
   import { APP_NAME } from "$lib/config";
 
   let { children } = $props();
+
+  onMount(async () => {
+    await loadScriptsInOrder([
+      '/assets/libs/jquery/jquery.min.js',
+      '/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
+      '/assets/libs/metismenu/metisMenu.min.js',
+      '/assets/libs/simplebar/simplebar.min.js',
+      '/assets/libs/node-waves/waves.min.js',
+      '/assets/libs/feather-icons/feather.min.js',
+      '/assets/libs/pace-js/pace.min.js',
+      '/assets/js/app.js'
+    ]);
+  });
 
   onMount(() => {
     document.body.setAttribute('data-layout', 'horizontal');
@@ -60,8 +73,8 @@
 </div>
 <!-- END layout-wrapper -->
 
+<RightBar />
+
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
-
-<DynamicScripts />
 

@@ -47,7 +47,7 @@
         }
 
         try {
-            const response = await fetch('http://localhost:8000/api/innovations', {
+            const response = await fetch('https://inovasibackend.bengkulukota.go.id/api/innovations', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -132,23 +132,23 @@
         </div>
         <div class="card-body">
             <p class="card-title-desc mb-2">Latar Belakang <span class="text-danger">*</span></p>
-            <textarea bind:value={latar_belakang} id="latar_belakangs"></textarea>
+            <textarea bind:value={latar_belakang} class="form-control" id="latar_belakangs"></textarea>
         </div>
         <div class="card-body">
             <p class="card-title-desc mb-2">Penjaringan Ide <span class="text-danger">*</span></p>
-            <textarea bind:value={penjaringan_ide} id="penjaringan_ides"></textarea>
+            <textarea bind:value={penjaringan_ide} class="form-control" id="penjaringan_ides"></textarea>
         </div>
         <div class="card-body">
             <p class="card-title-desc mb-2">Pemilihan Ide <span class="text-danger">*</span></p>
-            <textarea bind:value={pemilihan_ide} id="pemilihan_ides"></textarea>
+            <textarea bind:value={pemilihan_ide} class="form-control" id="pemilihan_ides"></textarea>
         </div>
         <div class="card-body">
             <p class="card-title-desc mb-2">Manfaat Inovasi <span class="text-danger">*</span></p>
-            <textarea bind:value={manfaat_inovasi} id="manfaat_inovasis"></textarea>
+            <textarea bind:value={manfaat_inovasi} class="form-control" id="manfaat_inovasis"></textarea>
         </div>
         <div class="card-body">
             <p class="card-title-desc mb-2">Dampak Inovasi <span class="text-danger">*</span></p>
-            <textarea bind:value={dampak_inovasi} id="dampak_inovasis"></textarea>
+            <textarea bind:value={dampak_inovasi} class="form-control" id="dampak_inovasis"></textarea>
         </div>  
     </div>
     <div class="d-grid gap-2 mb-3">

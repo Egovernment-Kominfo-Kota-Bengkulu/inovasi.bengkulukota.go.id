@@ -21,7 +21,7 @@
         ],
         operator: [
             { name: 'Dashboard', href: '/operator/dashboard', icon: 'home', translationKey: 't-dashboards' },
-            { name: 'Inovasi', href: '/operator/innovations', icon: 'lightbulb', translationKey: 't-innovations' },
+            { name: 'Inovasi', href: '/operator/innovations', icon: 'anchor', translationKey: 't-innovations' },
         ],
         organisasi: [
             { name: 'Rancang Bangun Invoasi', href: '/organisasi/innovations', icon: 'anchor', translationKey: 't-dashboards' },
@@ -40,7 +40,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                {#each menus['organisasi'] ?? [] as item}
+                {#each menus['admin'] ?? [] as item}
                 <li>
                     <a href="{item.href}">
                         <i data-feather="{item.icon}"></i>

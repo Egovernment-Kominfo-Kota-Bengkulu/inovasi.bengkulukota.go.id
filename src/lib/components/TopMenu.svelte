@@ -16,7 +16,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="index.html" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="#inovasi" id="topnav-dashboard" role="button">
                             <i data-feather="award"></i><span data-key="t-dashboards">Inovasi Kota Bengkulu</span>
                         </a>
                     </li>
