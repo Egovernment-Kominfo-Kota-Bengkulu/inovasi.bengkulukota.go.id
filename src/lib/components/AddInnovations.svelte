@@ -131,24 +131,28 @@
             <h4 class="card-title">Rancang Bangun</h4>
         </div>
         <div class="card-body">
-            <p class="card-title-desc mb-2">Latar Belakang <span class="text-danger">*</span></p>
+            <p class="card-title-desc mb-2">Dasar Hukum <span class="text-danger">*</span></p>
             <textarea bind:value={latar_belakang} class="form-control" id="latar_belakangs"></textarea>
         </div>
         <div class="card-body">
-            <p class="card-title-desc mb-2">Penjaringan Ide <span class="text-danger">*</span></p>
+            <p class="card-title-desc mb-2">Permasalahan <span class="text-danger">*</span></p>
             <textarea bind:value={penjaringan_ide} class="form-control" id="penjaringan_ides"></textarea>
         </div>
         <div class="card-body">
-            <p class="card-title-desc mb-2">Pemilihan Ide <span class="text-danger">*</span></p>
+            <p class="card-title-desc mb-2">Isu Strategis <span class="text-danger">*</span></p>
             <textarea bind:value={pemilihan_ide} class="form-control" id="pemilihan_ides"></textarea>
         </div>
         <div class="card-body">
-            <p class="card-title-desc mb-2">Manfaat Inovasi <span class="text-danger">*</span></p>
+            <p class="card-title-desc mb-2">Metode Pembaharuan <span class="text-danger">*</span></p>
             <textarea bind:value={manfaat_inovasi} class="form-control" id="manfaat_inovasis"></textarea>
         </div>
         <div class="card-body">
-            <p class="card-title-desc mb-2">Dampak Inovasi <span class="text-danger">*</span></p>
+            <p class="card-title-desc mb-2">Keunggulan dan Kebaharuan <span class="text-danger">*</span></p>
             <textarea bind:value={dampak_inovasi} class="form-control" id="dampak_inovasis"></textarea>
+        </div>
+        <div class="card-body">
+            <p class="card-title-desc mb-2">Tahapan Inovasi <span class="text-danger">*</span></p>
+            <textarea bind:value={dampak_inovasi} class="form-control" id="tahapan_inovasi"></textarea>
         </div>  
     </div>
     <div class="d-grid gap-2 mb-3">

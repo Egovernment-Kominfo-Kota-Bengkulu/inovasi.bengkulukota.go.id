@@ -6,7 +6,7 @@
     <title>Masuk {APP_NAME} | Solusi Digital dan Pelayanan Publik Modern</title>
 </svelte:head>
 
-<form class="mt-4 pt-2" action="index.html">
+<form class="mt-4 pt-2" action="/">
     <div class="mb-3">
         <label class="form-label">Username</label>
         <input type="text" class="form-control" id="username" placeholder="Masukkan username">

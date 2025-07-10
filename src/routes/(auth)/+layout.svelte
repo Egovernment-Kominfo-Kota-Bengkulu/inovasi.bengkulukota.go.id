@@ -32,7 +32,7 @@
                     <div class="w-100">
                         <div class="d-flex flex-column h-100">
                             <div class="mb-4 mb-md-5 text-center">
-                                <a href="index.html" class="d-block auth-logo">
+                                <a href="/" class="d-block auth-logo">
                                     <img src="/favicon.png" alt="" height="28"> <span class="logo-txt">{APP_NAME}</span>
                                 </a>
                             </div>
@@ -170,5 +170,3 @@
     </div>
     <!-- end container fluid -->
 </div>
-
-<DynamicScripts script={scripts} />

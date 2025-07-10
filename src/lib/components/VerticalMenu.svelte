@@ -40,7 +40,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                {#each menus['admin'] ?? [] as item}
+                {#each menus['organisasi'] ?? [] as item}
                 <li>
                     <a href="{item.href}">
                         <i data-feather="{item.icon}"></i>

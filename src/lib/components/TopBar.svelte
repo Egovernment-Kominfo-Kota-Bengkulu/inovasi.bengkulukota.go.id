@@ -7,7 +7,7 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                <a href="/" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="/favicon.png" alt="" height="24">
                     </span>
@@ -16,7 +16,7 @@
                     </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="/" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="/favicon.png" alt="" height="24">
                     </span>
@@ -47,7 +47,11 @@
                 </button>
             </div>
             
-            <div class="dropdown d-inline-block">
+            <div class="my-3">
+                <a href="masuk" class="btn btn-primary btn-rounded waves-effect waves-light px-4"><i data-feather="log-in"></i> Masuk</a>
+            </div>
+
+            <!-- <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item bg-light-subtle border-start border-end" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
@@ -61,7 +65,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
                 </div>
-            </div>
+            </div> -->
 
             <!-- <button type="button" class="btn btn-primary waves-effect waves-light my-3">Masuk / Daftar</button> -->
         </div>
