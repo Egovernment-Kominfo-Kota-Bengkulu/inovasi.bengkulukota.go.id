@@ -7,14 +7,15 @@
         <div class="card">
             <div class="card-body">
                 <div class="">
-                    <div class="text-center mb-3">
+                    <div class="mb-4">
+                        <div class="ratio ratio-16x9 img-fluid">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/_ckl62AxFcw?si=LC56HifAHMmffOkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="text-left mb-4">
                         <h4>Beautiful Day with Friends</h4>
                     </div>
-                    <div class="mb-4">
-                        <img src="assets/images/small/img-2.jpg" alt="" class="img-thumbnail mx-auto d-block">
-                    </div>
-
-                    <div class="text-center">
+                    <div class="text-left">
                         <div class="row">
                             <div class="col-sm-4">
                                 <div>
@@ -99,15 +100,8 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <div class="search-box">
-                        <h5 class="mb-3">Search</h5>
-                        <div class="position-relative px-2">
-                            <input type="text" class="form-control rounded bg-light border-light" placeholder="Search...">
-                            <i class="mdi mdi-magnify search-icon"></i>
-                        </div>
-                    </div>
                     <div class="mt-5">
-                        <h5 class="mb-3">Categories</h5>
+                        <h5 class="mb-3">Kategori</h5>
                         <ul class="list-unstyled fw-medium px-2">
                             <li><a href="javascript: void(0);" class="text-body pb-3 d-block border-bottom">Design<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">02</span></a></li>
                             <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Development <span class="badge bg-primary-subtle text-primary rounded-pill float-end ms-1 font-size-12">04</span></a></li>
@@ -115,70 +109,6 @@
                             <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Project<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">08</span></a></li>
                             <li><a href="javascript: void(0);" class="text-body pt-3 pb-0 d-block">Travel<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">10</span></a></li>
                         </ul>
-                    </div>
-                    <div class="mt-5">
-                        <h5 class="mb-3">Upcoming Post</h5>
-                        <div class="list-group list-group-flush">
-                            <a href="javascript: void(0);" class="list-group-item text-muted pb-3 pt-0 px-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <img src="assets/images/small/img-7.jpg" alt="" class="avatar-lg h-auto d-block rounded">
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="font-size-13 text-truncate">Beautiful Day with Friends</h5>
-                                        <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:00 AM</span></p>
-                                    </div>
-                                    <div class="fs-1">
-                                        <i class="mdi mdi-calendar"></i>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <img src="assets/images/small/img-2.jpg" alt="" class="avatar-lg h-auto d-block rounded">
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="font-size-13 text-truncate">Drawing a sketch</h5>
-                                        <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:05 AM</span></p>
-                                    </div>
-                                    <div class="fs-1">
-                                        <i class="mdi mdi-calendar"></i>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <img src="assets/images/small/img-6.jpg" alt="" class="avatar-lg h-auto d-block rounded">
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="font-size-13 text-truncate">Project discussion with team</h5>
-                                        <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:10 PM</span></p>
-                                    </div>
-                                    <div class="fs-1">
-                                        <i class="mdi mdi-calendar"></i>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="javascript: void(0);" class="list-group-item text-muted py-3 px-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <img src="assets/images/small/img-1.jpg" alt="" class="avatar-lg h-auto d-block rounded">
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="font-size-13 text-truncate">Coffee with friends</h5>
-                                        <p class="mb-0 text-truncate">20 August, 2022 <span class="">/ 05:30 PM</span></p>
-                                    </div>
-                                    <div class="fs-1">
-                                        <i class="mdi mdi-calendar"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
                     </div>
 
                     <div class="mt-5">
@@ -219,44 +149,6 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
-                    </div>
-
-                    <div class="mt-5">
-                        <h5 class="mb-3">Tag Clouds</h5>
-                        <div class="px-2">
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Design</span></a>
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Development</span></a>
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Wordpress</span></a>
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">HTML</span></a>
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Project</span></a>
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Business</span></a>
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Travel</span></a>
-                            <a href="#" class="font-size-17"><span class="badge bg-primary-subtle text-primary">Photography</span></a>
-                        </div>
-                    </div>
-
-                    <div class="mt-5">
-                        <h5 class="mb-3">Instagram Post</h5>
-                        <div class="gap-2 hstack flex-wrap px-2">
-                            <img src="assets/images/small/img-3.jpg" alt="" class="avatar-xl rounded">
-                            <img src="assets/images/small/img-1.jpg" alt="" class="avatar-xl rounded">
-                            <img src="assets/images/small/img-2.jpg" alt="" class="avatar-xl rounded">
-                            <img src="assets/images/small/img-4.jpg" alt="" class="avatar-xl rounded">
-                            <img src="assets/images/small/img-5.jpg" alt="" class="avatar-xl rounded">
-                            <img src="assets/images/small/img-6.jpg" alt="" class="avatar-xl rounded">
-                        </div>
-                    </div>
-
-                    <div class="mt-5">
-                        <h5 class="mb-3">Email Newsletter</h5>
-                        <div class="">
-                            <div class="input-group mb-0 px-2">
-                                <input type="text" class="form-control" placeholder="Enter Email">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="mdi mdi-send-outline"></i></span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
