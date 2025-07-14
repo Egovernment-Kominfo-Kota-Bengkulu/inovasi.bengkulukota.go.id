@@ -3,8 +3,6 @@
     import { onMount } from "svelte";
     import { writable } from 'svelte/store';
     import type { Writable } from 'svelte/store';
-    // import { getInnovations } from "$lib/api/innovations";
-    // import type { Innovation } from "$lib/api/innovations";
     import { loadScriptsInOrder } from "$lib/utils/scriptLoader";
     import { waitUntil } from "$lib/utils/waitUntil";
 
@@ -22,15 +20,6 @@
             '/assets/js/pages/datatables.init.js',
         ]);
     });
-
-    // onMount(async () => {
-    //     try {
-    //         const data = await getInnovations();
-    //         innovations.set(data);
-    //     } catch (err: any) {
-    //         error = err.message;
-    //     }
-    // });
 </script>
 
 <svelte:head>
@@ -78,15 +67,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <!-- {#each $innovations as innovation (innovation.id)}
-                            <tr>
-                                <td>{innovation.organization.nama_organisasi}</td>
-                                <td></td>
-                                <td>{innovation.nama_inovasi}</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            {/each} -->
                         </tbody>
                     </table>
                 </div>
