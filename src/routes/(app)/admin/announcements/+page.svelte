@@ -3,12 +3,9 @@
     import { onMount } from "svelte";
     import { writable } from 'svelte/store';
     import type { Writable } from 'svelte/store';
-    // import { getInnovations } from "$lib/api/innovations";
-    // import type { Innovation } from "$lib/api/innovations";
     import { loadScriptsInOrder } from "$lib/utils/scriptLoader";
     import { waitUntil } from "$lib/utils/waitUntil";
 
-    // const innovations : Writable<Innovation[]> = writable([]);
     let error: string = '';
 
     onMount(async () => {
@@ -24,12 +21,6 @@
     });
 
     onMount(async () => {
-        // try {
-        //     const data = await getInnovations();
-        //     innovations.set(data);
-        // } catch (err: any) {
-        //     error = err.message;
-        // }
     });
 </script>
 
@@ -83,20 +74,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <!-- {#each $innovations as innovation (innovation.id)}
-                            <tr>
-                                <td>{innovation.tahun}</td>
-                                <td>{innovation.organization.nama_organisasi}</td>
-                                <td>{innovation.nama_inovasi}</td>
-                                <td>{innovation.latar_belakang}</td>
-                                <td>{innovation.penjaringan_ide}</td>
-                                <td>{innovation.pemilihan_ide}</td>
-                                <td>{innovation.manfaat_inovasi}</td>
-                                <td>{innovation.dampak_inovasi}</td>
-                                <td>{innovation.link_video_youtube}</td>
-                                <td></td>
-                            </tr>
-                            {/each} -->
                         </tbody>
                     </table>
                 </div>
