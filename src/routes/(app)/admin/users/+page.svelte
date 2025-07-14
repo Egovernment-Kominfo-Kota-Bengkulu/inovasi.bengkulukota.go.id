@@ -3,12 +3,12 @@
     import { onMount } from "svelte";
     import { writable } from 'svelte/store';
     import type { Writable } from 'svelte/store';
-    import { getInnovations } from "$lib/api/innovations";
-    import type { Innovation } from "$lib/api/innovations";
+    // import { getInnovations } from "$lib/api/innovations";
+    // import type { Innovation } from "$lib/api/innovations";
     import { loadScriptsInOrder } from "$lib/utils/scriptLoader";
     import { waitUntil } from "$lib/utils/waitUntil";
 
-    const innovations : Writable<Innovation[]> = writable([]);
+    // const innovations : Writable<Innovation[]> = writable([]);
     let error: string = '';
 
     onMount(async () => {
@@ -23,14 +23,14 @@
         ]);
     });
 
-    onMount(async () => {
-        try {
-            const data = await getInnovations();
-            innovations.set(data);
-        } catch (err: any) {
-            error = err.message;
-        }
-    });
+    // onMount(async () => {
+    //     try {
+    //         const data = await getInnovations();
+    //         innovations.set(data);
+    //     } catch (err: any) {
+    //         error = err.message;
+    //     }
+    // });
 </script>
 
 <svelte:head>
@@ -78,7 +78,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            {#each $innovations as innovation (innovation.id)}
+                            <!-- {#each $innovations as innovation (innovation.id)}
                             <tr>
                                 <td>{innovation.organization.nama_organisasi}</td>
                                 <td></td>
@@ -86,7 +86,7 @@
                                 <td></td>
                                 <td></td>
                             </tr>
-                            {/each}
+                            {/each} -->
                         </tbody>
                     </table>
                 </div>
