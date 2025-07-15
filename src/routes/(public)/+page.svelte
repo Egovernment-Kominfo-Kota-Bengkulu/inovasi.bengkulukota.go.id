@@ -1,5 +1,6 @@
 <script lang="ts">
-    import axios from 'axios';
+    import api from '$lib/api/index';
+    import { handleAxiosError } from '$lib/utils/errorHandler';
     import type { Innovation } from '$lib/types/innovation';
     import type { Category } from '$lib/types/category';
     import { onMount } from 'svelte';
@@ -11,60 +12,23 @@
 
     async function fetchCategories() {
         try {
-            const response = await axios.get(
-                'http://localhost:8000/api/stats/innovation/category', {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        // 'Authorization': `Bearer ${token}`
-                    },
-                    timeout: 10000
-                });
-            console.log('Respons kategori:', response.data); // Debugging
+            const response = await api.get('/stats/innovation/category');
+            console.log('Respons kategori:', response.data.data);
             categories = response.data.data;
         } catch (err) {
             console.error('Gagal mengambil kategori:', err);
-            if (axios.isAxiosError(err)) {
-                if (err.code === 'ERR_NETWORK') {
-                    error =
-                        'Kesalahan jaringan: Tidak dapat terhubung ke server. Pastikan koneksi internet aktif atau server sedang berjalan.';
-                } else if (err.response) {
-                    error =
-                        `Kesalahan server ${err.response.status}: ${err.response.data?.message || 'Kesalahan tidak diketahui'}`;
-                } else {
-                    error = err.message || 'Gagal mengambil kategori';
-                }
-            } else {
-                error = 'Terjadi kesalahan tak terduga';
-            }
+            error = handleAxiosError(err, 'Gagal mengambil kategori');
         }
     }
 
     async function fetchInnovation() {
         try {
-            const response = await axios.get('http://localhost:8000/api/innovations', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    // 'Authorization': `Bearer ${token}`
-                },
-                timeout: 10000
-            });
-            console.log('Respons inovasi:', response.data); // Debugging
-            innovations = response.data.data;
+            const response = await api.get('/innovations');
+            console.log('Respons inovasi:', response.data.data.data);
+            innovations = response.data.data.data;
         } catch (err) {
             console.error('Gagal mengambil inovasi:', err);
-            if (axios.isAxiosError(err)) {
-                if (err.code === 'ERR_NETWORK') {
-                    error =
-                        'Kesalahan jaringan: Tidak dapat terhubung ke server. Pastikan koneksi internet aktif atau server sedang berjalan.';
-                } else if (err.response) {
-                    error =
-                        `Kesalahan server ${err.response.status}: ${err.response.data?.message || 'Kesalahan tidak diketahui'}`;
-                } else {
-                    error = err.message || 'Gagal mengambil inovasi';
-                }
-            } else {
-                error = 'Terjadi kesalahan tak terduga';
-            }
+            error = handleAxiosError(err, 'Gagal mengambil inovasi');
         }
     }
 
@@ -74,10 +38,7 @@
         loading = false;
     });
 
-    $: totalInnovations = innovations.length || categories.reduce((sum, cat) => sum + (cat.jumlah_inovasi || 0),
-        0);
-
-    const currentYear = new Date().getFullYear();
+    $: totalInnovations = innovations.length || categories.reduce((sum, cat) => sum + (cat.jumlah_inovasi || 0), 0);
 </script>
 
 <div class="row">
@@ -105,7 +66,7 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <span class="text-muted mb-3 lh-1 d-block text-truncate">Total Inovasi</span>
-                            <h4 class="mb-3">
+                            <h4>
                                 <span class="counter-value" data-target="{totalInnovations}">{totalInnovations}</span>
                             </h4>
                         </div>
@@ -126,7 +87,7 @@
                         <div class="row align-items-center">
                             <div class="col-12">
                                 <span class="text-muted mb-3 lh-1 d-block text-truncate">{category.nama_kategori}</span>
-                                <h4 class="mb-3">
+                                <h4>
                                     <span class="counter-value">{category.jumlah_inovasi}</span>
                                 </h4>
                             </div>
@@ -136,7 +97,10 @@
             </div>
         {/each}
     </div>
-    <div id="inovasi" class="row">
+    <div id="inovasi" class="row mt-4">
+        <div class="col-12">
+            <h5 class="mb-3">Inovasi Terbaru</h5>
+        </div>
     {#each innovations as innovation}
         <div class="col-xl-4 col-sm-6">
             <div class="card">
@@ -148,7 +112,6 @@
                 <div class="card-body">
                     <p class="text-muted mb-2">Inovasi Tahun {innovation.tahun}</p>
                     <h5><a href="#" class="text-body">{innovation.nama_inovasi}</a></h5>
-                    <p class="mb-0 font-size-15">{innovation.rancang_bangun}</p>
                     <div class="mt-3">
                         <a href="/inovasi" class="align-middle font-size-15">Lihat detailnya <i class="mdi mdi-chevron-right"></i></a>
                     </div>
@@ -156,37 +119,37 @@
             </div>
         </div>
     {/each}
-</div>
+    </div>
 
-<div class="row justify-content-center mb-4">
-    <div class="col-md-3">
-        <div>
-            <ul class="pagination mb-sm-0">
-                <li class="page-item disabled">
-                    <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                </li>
-                <li class="page-item active">
-                    <a href="#" class="page-link">1</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">2</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">3</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">4</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">5</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                </li>
-            </ul>
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-3">
+            <div>
+                <ul class="pagination mb-sm-0">
+                    <li class="page-item disabled">
+                        <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 {/if}
 
 <style>

@@ -4,6 +4,6 @@ export interface Innovation {
   nama_inovasi: string;
   tahun: number;
   rancang_bangun: string;
-  link_video_youtube: string | null;
-  berkelanjutan: 'iya' | 'tidak';
+  // link_video_youtube: string | null;
+  // berkelanjutan: 'iya' | 'tidak';
 }
