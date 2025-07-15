@@ -4,7 +4,7 @@
     import type { Category } from '$lib/types/category';
     import { onMount } from 'svelte';
 
-    let innovationDaftar: Innovation[] = [];
+    let innovations: Innovation[] = [];
     let categories: Category[] = [];
     let loading: boolean = true;
     let error: string | null = null;
@@ -12,7 +12,7 @@
     async function fetchCategories() {
         try {
             const response = await axios.get(
-                'https://inovasibackend.bengkulukota.go.id/api/stats/innovation/category', {
+                'http://localhost:8000/api/stats/innovation/category', {
                     headers: {
                         'Content-Type': 'application/json',
                         // 'Authorization': `Bearer ${token}`
@@ -41,7 +41,7 @@
 
     async function fetchInnovation() {
         try {
-            const response = await axios.get('https://inovasibackend.bengkulukota.go.id/api/innovations', {
+            const response = await axios.get('http://localhost:8000/api/innovations', {
                 headers: {
                     'Content-Type': 'application/json',
                     // 'Authorization': `Bearer ${token}`
@@ -49,7 +49,7 @@
                 timeout: 10000
             });
             console.log('Respons inovasi:', response.data); // Debugging
-            innovationDaftar = response.data.data;
+            innovations = response.data.data;
         } catch (err) {
             console.error('Gagal mengambil inovasi:', err);
             if (axios.isAxiosError(err)) {
@@ -74,7 +74,7 @@
         loading = false;
     });
 
-    $: totalInnovations = innovationDaftar.length || categories.reduce((sum, cat) => sum + (cat.jumlah_inovasi || 0),
+    $: totalInnovations = innovations.length || categories.reduce((sum, cat) => sum + (cat.jumlah_inovasi || 0),
         0);
 
     const currentYear = new Date().getFullYear();
@@ -95,7 +95,7 @@
     <p>Memuat data...</p>
 {:else if error}
     <p style="color: red;">Kesalahan: {error}</p>
-{:else if categories.length === 0 && innovationDaftar.length === 0}
+{:else if categories.length === 0 && innovations.length === 0}
     <p>Tidak ada data ditemukan.</p>
 {:else}
     <div class="row">
@@ -137,21 +137,12 @@
         {/each}
     </div>
     <div id="inovasi" class="row">
-    {#each innovationDaftar as innovation}
+    {#each innovations as innovation}
         <div class="col-xl-4 col-sm-6">
             <div class="card">
                 <div class="">
                     <div class="ratio ratio-16x9 img-fluid">
-                        <iframe
-                            width="560"
-                            height="315"
-                            src={innovation.link_video_youtube || 'https://www.youtube.com/embed/_ckl62AxFcw?si=LC56HifAHMmffOkO'}
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen
-                        ></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/M2wgPR5rEqM?si=0VnEUFydXlVK9OjV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="card-body">
