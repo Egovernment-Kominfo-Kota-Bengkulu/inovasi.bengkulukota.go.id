@@ -11,22 +11,25 @@
 
     async function fetchCategories() {
         try {
-            const response = await axios.get('https://inovasibackend.bengkulukota.go.id/api/stats/innovation/category', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    // 'Authorization': `Bearer ${token}`
-                },
-                timeout: 10000
-            });
+            const response = await axios.get(
+                'https://inovasibackend.bengkulukota.go.id/api/stats/innovation/category', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // 'Authorization': `Bearer ${token}`
+                    },
+                    timeout: 10000
+                });
             console.log('Respons kategori:', response.data); // Debugging
             categories = response.data.data;
         } catch (err) {
             console.error('Gagal mengambil kategori:', err);
             if (axios.isAxiosError(err)) {
                 if (err.code === 'ERR_NETWORK') {
-                    error = 'Kesalahan jaringan: Tidak dapat terhubung ke server. Pastikan koneksi internet aktif atau server sedang berjalan.';
+                    error =
+                        'Kesalahan jaringan: Tidak dapat terhubung ke server. Pastikan koneksi internet aktif atau server sedang berjalan.';
                 } else if (err.response) {
-                    error = `Kesalahan server ${err.response.status}: ${err.response.data?.message || 'Kesalahan tidak diketahui'}`;
+                    error =
+                        `Kesalahan server ${err.response.status}: ${err.response.data?.message || 'Kesalahan tidak diketahui'}`;
                 } else {
                     error = err.message || 'Gagal mengambil kategori';
                 }
@@ -51,9 +54,11 @@
             console.error('Gagal mengambil inovasi:', err);
             if (axios.isAxiosError(err)) {
                 if (err.code === 'ERR_NETWORK') {
-                    error = 'Kesalahan jaringan: Tidak dapat terhubung ke server. Pastikan koneksi internet aktif atau server sedang berjalan.';
+                    error =
+                        'Kesalahan jaringan: Tidak dapat terhubung ke server. Pastikan koneksi internet aktif atau server sedang berjalan.';
                 } else if (err.response) {
-                    error = `Kesalahan server ${err.response.status}: ${err.response.data?.message || 'Kesalahan tidak diketahui'}`;
+                    error =
+                        `Kesalahan server ${err.response.status}: ${err.response.data?.message || 'Kesalahan tidak diketahui'}`;
                 } else {
                     error = err.message || 'Gagal mengambil inovasi';
                 }
@@ -69,7 +74,8 @@
         loading = false;
     });
 
-    $: totalInnovations = innovationDaftar.length || categories.reduce((sum, cat) => sum + (cat.jumlah_inovasi || 0), 0);
+    $: totalInnovations = innovationDaftar.length || categories.reduce((sum, cat) => sum + (cat.jumlah_inovasi || 0),
+        0);
 
     const currentYear = new Date().getFullYear();
 </script>
@@ -130,9 +136,7 @@
             </div>
         {/each}
     </div>
-{/if}
-
-<div id="inovasi" class="row">
+    <div id="inovasi" class="row">
     {#each innovationDaftar as innovation}
         <div class="col-xl-4 col-sm-6">
             <div class="card">
@@ -192,6 +196,7 @@
         </div>
     </div>
 </div>
+{/if}
 
 <style>
     .card-h-100 {
