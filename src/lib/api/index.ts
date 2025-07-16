@@ -1,7 +1,7 @@
 import axios from 'axios';
 
    const api = axios.create({
-     baseURL: 'https://inovasibackend.bengkulukota.go.id/api',
+     baseURL: import.meta.env.PUBLIC_API_URL,
      headers: {
        'Content-Type': 'application/json',
      },
