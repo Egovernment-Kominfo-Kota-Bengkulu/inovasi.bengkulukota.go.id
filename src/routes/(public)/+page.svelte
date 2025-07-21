@@ -1,17 +1,9 @@
 <script lang="ts">
     import api from '$lib/api/index';
-    import {
-        handleAxiosError
-    } from '$lib/utils/errorHandler';
-    import type {
-        Innovation
-    } from '$lib/types/innovation';
-    import type {
-        Category
-    } from '$lib/types/category';
-    import {
-        onMount
-    } from 'svelte';
+    import { handleAxiosError } from '$lib/utils/errorHandler';
+    import type { Innovation } from '$lib/types/innovation';
+    import type { Category } from '$lib/types/category';
+    import { onMount } from 'svelte';
 
     let innovations: Innovation[] = [];
     let categories: Category[] = [];
@@ -164,10 +156,27 @@
     </section>
 {/if}
 
-<section id="tentang">
-    <div class="text-center">
-        <h3 class="mt-5">Ayo tunjukkan kreativitas dan inovasimu untuk kemajuan Kota Bengkulu!</h3>
-        <p class="font-size-16">Lomba Inovasi Daerah 2025 adalah wadah bagi perangkat daerah, kecamatan, kelurahan, sekolah, puskesmas, dan unit kerja lainnya untuk menampilkan inovasi terbaiknya. Pemenang akan berkesempatan mengikuti Penilaian Indeks Inovasi Daerah (IGA) Kemendagri 2025.</p>
+<section id="tentang" class="my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="rounded me-2 img-fluid" alt="Kepala Daerah Kota Bengkulu" src="assets/images/kepala_daerah_kota_bengkulu.png" data-holder-rendered="true">
+        </div>
+        <div class="col-md-6">
+            <h1 class="mb-3">Ayo Tunjukkan Kreativitas dan Inovasimu!</h1>
+            <p class="lead">
+                Lomba Inovasi Daerah 2025 menjadi ajang apresiasi bagi ide-ide segar dan solusi nyata dari perangkat daerah, kecamatan, kelurahan, sekolah, puskesmas, dan unit kerja lainnya.
+            </p>
+            <p class="mb-0">
+                Saatnya berkarya, berinovasi, dan berdampak! Raih hadiah menarik, penghargaan bergengsi, serta kesempatan mengikuti <strong>Innovative Government Award (IGA) Kemendagri 2025</strong>.
+            </p>
+            <p>
+                Bersama kita wujudkan <strong>Bengkulu yang Inovatif, Kreatif, dan Kompetitif.</strong>
+            </p>
+            <a href="#panduan" class="btn btn-primary">
+                Panduan Inovasi Daerah
+                <i class="mdi mdi-chevron-right"></i>
+            </a>
+        </div>
     </div>
 </section>
 
@@ -444,6 +453,41 @@
         </div>
     </div>
 </section>
+<section id="panduan" class="my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="rounded me-2 img-fluid" alt="Kepala Daerah Kota Bengkulu" src="assets/images/inovasi.jpeg" data-holder-rendered="true">
+        </div>
+        <div class="col-md-8">
+            <h2 class="mb-3">📥 Unduh Pedoman Lomba Inovasi Daerah 2025</h2>
+            <p class="mb-2">
+                Pelajari seluruh ketentuan, tahapan, dan panduan lengkap lomba inovasi.  
+                Siapkan inovasimu dan raih kesempatan mengikuti IGA Kemendagri 2025!
+            </p>
+            <p class="mb-4">
+                Klik tombol di bawah ini untuk mendapatkan Buku Pedoman Resmi.
+            </p>
+            <a href="/pedoman_inovasi_inovasi_2025.pdf" class="btn btn-success" download>
+                📄 Download Pedoman Sekarang
+            </a>
+        </div>
+    </div>
+</section>
+<section id="kontak" class="my-5 p-4 bg-light">
+    <h2 class="mb-3">Hubungi Kami</h2>
+    <p>
+        Jika ada pertanyaan, informasi lebih lanjut, atau pendampingan inovasi,  
+        silakan hubungi kami melalui kontak berikut:
+    </p>
+    <ul class="list-unstyled">
+        <li><strong>Badan Perencanaan Pembangunan Daerah Kota Bengkulu – Bidang Penelitian dan Pengembangan</strong></li>
+        <li>Jl. Pembangunan No. 12, Kota Bengkulu</li>
+        <li>☎️ (0736) 123456 | 📱 WhatsApp: 08xx-xxxx-xxxx</li>
+        <li>📧 bappeda@kotabengkulu.go.id</li>
+        <li>🕑 Senin – Jumat | 08.00 – 16.00 WIB</li>
+    </ul>
+</section>
+
 
 <style>
     .card-h-100 {

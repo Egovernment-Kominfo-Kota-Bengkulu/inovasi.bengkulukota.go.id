@@ -34,13 +34,13 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="/#inovasi" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="/#panduan" id="topnav-dashboard" role="button">
                             <i data-feather="book"></i><span data-key="t-dashboards">Panduan</span>
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="/#inovasi" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="/#kontak" id="topnav-dashboard" role="button">
                             <i data-feather="phone"></i><span data-key="t-dashboards">Kontak Kami</span>
                         </a>
                     </li>
