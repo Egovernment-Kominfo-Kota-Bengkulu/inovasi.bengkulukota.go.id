@@ -22,12 +22,6 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="#tentang" id="topnav-dashboard" role="button">
-                            <i data-feather="book-open"></i><span data-key="t-dashboards">Tentang</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none text-uppercase" href="#jadwalpelaksanaan" id="topnav-dashboard" role="button">
                             <i data-feather="calendar"></i><span data-key="t-dashboards">Tahap Pelaksanaan</span>
                         </a>
