@@ -1,6 +1,62 @@
 <script lang="ts">
-    
+    import api from '$lib/api/index';
+    import type { Innovation } from '$lib/types/innovation';
+    import type { Category } from '$lib/types/category';
+    import { handleAxiosError } from '$lib/utils/errorHandler';
+    import { onMount } from 'svelte';
+
+    export let data: {id: string};
+    let innovation: Innovation | null = null;
+    let categories: Category[] = [];
+    let loading: boolean = true;
+    let error: string | null = null;
+
+    async function fetchCategories() {
+        try {
+            const response = await api.get('/stats/innovation/category');
+            console.log('Respons kategori:', response.data.data);
+            categories = response.data.data;
+        } catch (err) {
+            console.error('Gagal mengambil kategori:', err);
+            error = handleAxiosError(err, 'Gagal mengambil kategori');
+        } finally {
+            loading = false;
+        }
+    }
+
+    async function fetchInnovation() {
+        try {
+            const response = await api.get(`/innovations/${data.id}`);
+            console.log('Respons inovasi:', response.data.data);
+            innovation = response.data.data;
+        } catch (err) {
+            console.error('Gagal mengambil inovasi:', err);
+            error = handleAxiosError(err, 'Gagal mengambil inovasi');
+        } finally {
+            loading = false;
+        }
+    }
+
+    onMount(async () => {
+        loading = true;
+        await Promise.all([fetchCategories(), fetchInnovation()]);
+        loading = false;
+    });
 </script>
+
+{#if loading}
+    <p>Loading...</p>
+{:else if error}
+    <p class="error">{error}</p>
+{:else if innovation}
+    <div>
+        <h1>{innovation.nama_inovasi}</h1>
+        <p>{innovation.rancang_bangun}</p>
+        <small>Dibuat pada: {innovation.tahun}</small>
+    </div>
+{:else}
+    <p>Data tidak ditemukan</p>
+{/if}
 
 <div class="row">
     <div class="col-lg-8">
@@ -25,7 +81,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="mt-4 mt-sm-0">
-                                    <h6 class="mb-2">Date</h6>
+                                    <h6 class="mb-2">Tahun</h6>
                                     <p class="text-muted font-size-15">20 June, 2022</p>
                                 </div>
                             </div>
@@ -45,47 +101,6 @@
 
                             <p class="mb-4">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt</p>
 
-                            <blockquote class="p-4 border-light border rounded mb-4">
-                                <div class="d-flex">
-                                    <div class="me-3">
-                                        <i class="bx bxs-quote-alt-left text-body font-size-24"></i>
-                                    </div>
-                                    <div>
-                                        <p class="mb-0"> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium deleniti atque corrupti quos dolores et quas molestias excepturi sint quidem rerum facilis est</p>
-                                    </div>
-                                </div>
-
-                            </blockquote>
-
-                            <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Sed ut perspiciatis unde omnis iste natus error sit</p>
-
-
-                            <div class="mt-4">
-                                <h5 class="mb-3">Title: </h5>
-
-                                <div>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div>
-                                                <ul class="ps-4">
-                                                    <li class="py-1">Donec sodales sagittis</li>
-                                                    <li class="py-1">Sed consequat leo eget</li>
-                                                    <li class="py-1">Aliquam lorem ante</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div>
-                                                <ul class="ps-4">
-                                                    <li class="py-1">Aenean ligula eget</li>
-                                                    <li class="py-1">Cum sociis natoque</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -100,19 +115,17 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <div class="mt-5">
-                        <h5 class="mb-3">Kategori</h5>
+                    <div class="mt-1">
+                        <h5 class="mb-3">KATEGORI</h5>
                         <ul class="list-unstyled fw-medium px-2">
-                            <li><a href="javascript: void(0);" class="text-body pb-3 d-block border-bottom">Design<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">02</span></a></li>
-                            <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Development <span class="badge bg-primary-subtle text-primary rounded-pill float-end ms-1 font-size-12">04</span></a></li>
-                            <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Business<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">12</span></a></li>
-                            <li><a href="javascript: void(0);" class="text-body py-3 d-block border-bottom">Project<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">08</span></a></li>
-                            <li><a href="javascript: void(0);" class="text-body pt-3 pb-0 d-block">Travel<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">10</span></a></li>
+                            {#each categories as category}
+                            <li><a href="javascript: void(0);" class="text-body pb-3 d-block border-bottom">{category.nama_kategori}<span class="badge bg-primary-subtle text-primary rounded-pill ms-1 float-end font-size-12">{category.jumlah_inovasi}</span></a></li>
+                            {/each}
                         </ul>
                     </div>
 
                     <div class="mt-5">
-                        <h5 class="mb-3">Popular Post</h5>
+                        <h5 class="mb-3">PEMENANG 2025</h5>
                         <div class="list-group list-group-flush">
                             <a href="javascript: void(0);" class="list-group-item text-muted pb-3 pt-0 px-2">
                                 <div class="d-flex align-items-center">
@@ -155,5 +168,4 @@
             </div> <!-- end card -->
         </div>
     </div>
-
 </div> <!-- container-fluid -->

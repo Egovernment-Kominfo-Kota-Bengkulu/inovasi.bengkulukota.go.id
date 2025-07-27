@@ -1,8 +1,9 @@
 <script lang="ts">
     import api from '$lib/api/index';
-    import { handleAxiosError } from '$lib/utils/errorHandler';
+    import PlaceholdersIndex from '$lib/components/PlaceholdersIndex.svelte';
     import type { Innovation } from '$lib/types/innovation';
     import type { Category } from '$lib/types/category';
+    import { handleAxiosError } from '$lib/utils/errorHandler';
     import { onMount } from 'svelte';
 
     let innovations: Innovation[] = [];
@@ -18,6 +19,8 @@
         } catch (err) {
             console.error('Gagal mengambil kategori:', err);
             error = handleAxiosError(err, 'Gagal mengambil kategori');
+        } finally {
+            loading = false;
         }
     }
 
@@ -29,6 +32,8 @@
         } catch (err) {
             console.error('Gagal mengambil inovasi:', err);
             error = handleAxiosError(err, 'Gagal mengambil inovasi');
+        } finally {
+            loading = false;
         }
     }
 
@@ -53,7 +58,7 @@
 </div>
 
 {#if loading}
-    <p>Memuat data...</p>
+    <PlaceholdersIndex />
 {:else if error}
     <p style="color: red;">Kesalahan: {error}</p>
 {:else if categories.length === 0 && innovations.length === 0}
@@ -117,7 +122,7 @@
                         <p class="text-muted text-truncate d-inline-block w-100 mb-0">{innovation.organization.nama_organisasi} </p>
                         <h5 class="text-truncate d-inline-block w-100 mb-0"><a href="#" class="text-body text-truncate d-inline-block w-100">{innovation.nama_inovasi}</a></h5>
                         <div class="mt-3">
-                            <a href="/inovasi" class="align-middle font-size-15">Lihat detailnya <i class="mdi mdi-chevron-right"></i></a>
+                            <a href="/{innovation.id}" class="align-middle font-size-15">Lihat detailnya <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
