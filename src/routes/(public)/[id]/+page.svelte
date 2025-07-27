@@ -4,6 +4,7 @@
     import type { Category } from '$lib/types/category';
     import { handleAxiosError } from '$lib/utils/errorHandler';
     import { onMount } from 'svelte';
+  import PlaceholdersInvoasi from '$lib/components/PlaceholdersInvoasi.svelte';
 
     export let data: {id: string};
     let innovation: Innovation | null = null;
@@ -44,66 +45,53 @@
     });
 </script>
 
-{#if loading}
-    <p>Loading...</p>
-{:else if error}
-    <p class="error">{error}</p>
-{:else if innovation}
-    <div>
-        <h1>{innovation.nama_inovasi}</h1>
-        <p>{innovation.rancang_bangun}</p>
-        <small>Dibuat pada: {innovation.tahun}</small>
-    </div>
-{:else}
-    <p>Data tidak ditemukan</p>
-{/if}
-
 <div class="row">
     <div class="col-lg-8">
         <div class="card">
             <div class="card-body">
-                <div class="">
-                    <div class="mb-4">
-                        <div class="ratio ratio-16x9 img-fluid">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/_ckl62AxFcw?si=LC56HifAHMmffOkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="text-left mb-4">
-                        <h4>Beautiful Day with Friends</h4>
-                    </div>
-                    <div class="text-left">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div>
-                                    <h6 class="mb-2">Categories</h6>
-                                    <p class="text-muted font-size-15">Project</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mt-4 mt-sm-0">
-                                    <h6 class="mb-2">Tahun</h6>
-                                    <p class="text-muted font-size-15">20 June, 2022</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mt-4 mt-sm-0">
-                                    <p class="text-muted mb-2">Post by</p>
-                                    <h5 class="font-size-15">Gilbert Smith</h5>
-                                </div>
+                {#if loading}
+                    <PlaceholdersInvoasi />
+                {:else if error}
+                    <p class="error">{error}</p>
+                {:else if innovation}
+                    <div class="">
+                        <div class="mb-4">
+                            <div class="ratio ratio-16x9 img-fluid">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/_ckl62AxFcw?si=LC56HifAHMmffOkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
-                    </div>
-                    <hr>
+                        <div class="text-left mb-4">
+                            <h4>{innovation.nama_inovasi}</h4>
+                        </div>
+                        <div class="text-left">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="mt-4 mt-sm-0">
+                                        <p class="text-muted mb-2">Tahun</p>
+                                        <h5 class="font-size-15">{innovation.tahun}</h5>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="mt-4 mt-sm-0">
+                                        <p class="text-muted mb-2">Dibuat oleh</p>
+                                        <h5 class="font-size-15">{innovation.organization.nama_organisasi}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
 
-                    <div class="mt-4">
-                        <div class="text-muted font-size-14">
-                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam enim ad minima veniam quis</p>
-
-                            <p class="mb-4">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt</p>
-
+                        <div class="mt-4">
+                            <div class="text-muted font-size-14">
+                                <article>
+                                    {@html innovation.rancang_bangun}
+                                </article>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {:else}
+                    <p>Data tidak ditemukan</p>
+                {/if}
             </div>
             <!-- end card body -->
         </div>
@@ -168,4 +156,4 @@
             </div> <!-- end card -->
         </div>
     </div>
-</div> <!-- container-fluid -->
+</div> 
