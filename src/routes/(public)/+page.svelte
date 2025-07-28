@@ -3,32 +3,50 @@
     import PlaceholdersIndex from '$lib/components/PlaceholdersIndex.svelte';
     import type { Innovation } from '$lib/types/innovation';
     import type { Category } from '$lib/types/category';
+    import type { PaginatedResponse } from '$lib/types/pagination';
     import { handleAxiosError } from '$lib/utils/errorHandler';
     import { onMount } from 'svelte';
 
-    let innovations: Innovation[] = [];
+    let totalInnovations: number = 0;
     let categories: Category[] = [];
+    let innovations: Innovation[] = [];
+    let currentPage: number = 1;
+    let lastPage: number = 1;
+    let links: PaginatedResponse['data']['links'] = [];
     let loading: boolean = true;
     let error: string | null = null;
+
+    async function fetchCategoriesCount() {
+        try {
+            const response = await api.get('/stats/innovation/');
+            console.log('Response kategori count:', response.data.data.jumlah_inovasi);
+            totalInnovations = response.data.data.jumlah_inovasi;
+        } catch (err) {
+            console.error('Gagal mengambil jumlah inovasi:', err);
+            error = handleAxiosError(err, 'Gagal mengambil jumlah inovasi');
+        }
+    }
 
     async function fetchCategories() {
         try {
             const response = await api.get('/stats/innovation/category');
-            console.log('Respons kategori:', response.data.data);
+            console.log('Response kategori:', response.data.data);
             categories = response.data.data;
         } catch (err) {
             console.error('Gagal mengambil kategori:', err);
             error = handleAxiosError(err, 'Gagal mengambil kategori');
-        } finally {
-            loading = false;
         }
     }
 
-    async function fetchInnovation() {
+    async function fetchInnovation(page: number = 1) {
         try {
-            const response = await api.get('/innovations');
-            console.log('Respons inovasi:', response.data.data.data);
-            innovations = response.data.data.data;
+            console.log(`Fetching innovations for page: ${page}`); // Debug log
+            const response = await api.get<PaginatedResponse>(`/innovations?page=${page}`);
+            console.log('Response inovasi:', response.data.data.data); // Debug log
+            innovations = response.data.data.data; // Update innovations
+            currentPage = response.data.data.current_page;
+            lastPage = response.data.data.last_page;
+            links = response.data.data.links;
         } catch (err) {
             console.error('Gagal mengambil inovasi:', err);
             error = handleAxiosError(err, 'Gagal mengambil inovasi');
@@ -39,11 +57,24 @@
 
     onMount(async () => {
         loading = true;
-        await Promise.all([fetchCategories(), fetchInnovation()]);
+        await Promise.all([fetchCategories(), fetchInnovation(), fetchCategoriesCount()]);
         loading = false;
     });
 
-    $: totalInnovations = innovations.length || categories.reduce((sum, cat) => sum + (cat.jumlah_inovasi || 0), 0);
+    async function handlePageChange(url: string | null) {
+        if (!url) {
+            console.log('No URL provided for pagination');
+            return;
+        }
+        const page = new URL(url).searchParams.get('page');
+        if (page) {
+            console.log(`Navigating to page: ${page}`); // Debug log
+            loading = true; // Show loading state during page change
+            await fetchInnovation(parseInt(page));
+        } else {
+            console.error('Page number not found in URL:', url);
+        }
+    }
 </script>
 
 <div class="row">
@@ -129,37 +160,35 @@
             </div>
         {/each}
         </div>
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-3">
-                <div>
-                    <ul class="pagination mb-sm-0">
-                        <li class="page-item disabled">
-                            <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active">
-                            <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">5</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </section>
 {/if}
+
+
+<div class="row justify-content-center mb-4">
+    <div class="col-md-3">
+        <div>
+            <ul class="pagination mb-sm-0">
+                {#each links as link (link.label)}
+                    <li class="page-item {link.active ? 'active' : ''} {!link.url ? 'disabled' : ''}">
+                        <a
+                            href="#"
+                            class="page-link"
+                            on:click|preventDefault={() => handlePageChange(link.url)}
+                        >
+                            {#if link.label.includes('Previous')}
+                                <i class="mdi mdi-chevron-left"></i>
+                            {:else if link.label.includes('Next')}
+                                <i class="mdi mdi-chevron-right"></i>
+                            {:else}
+                                {link.label}
+                            {/if}
+                        </a>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+    </div>
+</div>
 
 <section id="tentang" class="my-5">
     <div class="row">
@@ -486,9 +515,9 @@
     </p>
     <ul class="list-unstyled">
         <li><strong>Badan Perencanaan Pembangunan Daerah Kota Bengkulu – Bidang Penelitian dan Pengembangan</strong></li>
-        <li>Jl. Pembangunan No. 12, Kota Bengkulu</li>
+        <li>Bentiring Permai, Kec. Muara Bangka Hulu, Kota Bengkulu, Bengkulu 38119</li>
         <li>☎️ (0736) 123456 | 📱 WhatsApp: 08xx-xxxx-xxxx</li>
-        <li>📧 bappeda@kotabengkulu.go.id</li>
+        <li>📧 bappeda@bengkulukota.go.id</li>
         <li>🕑 Senin – Jumat | 08.00 – 16.00 WIB</li>
     </ul>
 </section>
