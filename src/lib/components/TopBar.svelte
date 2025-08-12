@@ -1,5 +1,15 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { APP_NAME } from "$lib/config";
+
+  let searchQuery: string = '';
+
+  function handleSearch(event: Event) {
+    event.preventDefault();
+    if (searchQuery.trim()) {
+        goto(`/search/${encodeURIComponent(searchQuery)}`);
+    }
+  }
 </script>
 
 <header id="page-topbar">
@@ -34,10 +44,10 @@
         <div class="d-flex">
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block me-2">
+            <form class="app-search d-none d-lg-block me-2" on:submit={handleSearch}>
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Temukan inovasi...">
-                    <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>
+                    <input type="text" class="form-control" placeholder="Temukan inovasi..." bind:value={searchQuery} aria-label="Search" required>
+                    <button class="btn btn-primary" type="submit"><i class="bx bx-search-alt align-middle"></i></button>
                 </div>
             </form>
 
